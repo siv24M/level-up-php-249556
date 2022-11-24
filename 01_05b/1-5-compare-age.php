@@ -30,6 +30,13 @@ class Person {
 
 function compare_ages( $p1, $p2) {
 	// Challenge: define this function
+	if ($p1->get_age() > $p2->get_age()){
+		return $p1->get_name()." is older than ".$p2->get_name();
+	} elseif ($p2->get_age() > $p1->get_age()){
+		return $p2->get_name() . " is older than " . $p1->get_name();
+	} else{
+		return $p1->get_name()." and ".$p2->get_name()." are of same age";
+	}
 }
 
 

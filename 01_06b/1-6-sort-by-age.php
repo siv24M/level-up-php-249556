@@ -25,7 +25,7 @@ class Person {
 		$age = $today->diff($dob);
 		
 		//Return Age in Years
-		return $age->y;
+		return $age->format('%a');
 	}
 }
 
@@ -37,6 +37,15 @@ function print_array( $a ) {
 
 function compare_ages( $p1, $p2) {
 	// Challenge: Refactor this function. 
+	//echo var_dump($p1);
+	if ($p1->get_age() < $p2->get_age()){
+		return -1;
+	} elseif($p1->get_age() == $p2->get_age()){
+		return 0;
+	}else{
+		return 1;
+	}
+
 }
 
 $joe = new Person('Joe', '2010-10-20');
@@ -55,8 +64,25 @@ $john = new Person('John', '2007-04-30');
 $carl = new Person('Carl', '2010-03-25');
 
 $people = [ $joe, $phil, $erin, $alice, $bob, $carl, $jane, $john, $lou, $louis, $marie, $mike, $rob, $teresa];
-
+//$people = [$joe, $phil, $erin];
+//echo compare_ages($people[1],$people[2]);
+//exit;
 // Sort Here!
+
+/*$i = 0;
+
+while ($i < sizeof($people)){
+	$n = $i;
+	while ($n < sizeof($people)){
+		if ((compare_ages($people[$n], $people[$i])) == 0);
+		[$people[$n], $people[$i]] = [$people[$i], $people[$n]];
+		$n++;
+	}
+	
+	$i++;
+}*/
+
+usort($people,'compare_ages');
 
 // Print Results
 print_array( $people ); 

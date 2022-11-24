@@ -19,7 +19,10 @@ class Person {
 	
 	public function get_age() {
 		// Challenge: define this function
-
+		$today = new datetime(date('Y/m/d'));
+		$dob = new datetime($this->dob);
+		$age = date_diff($today , $dob);
+		return $age->format('%y years old');
 	}
 }
 
