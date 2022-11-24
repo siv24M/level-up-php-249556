@@ -15,6 +15,12 @@
 
 function flip() {
 	// Challenge: define this function
+	$n = rand(0,1);
+	if ($n == 0){
+		return "H";
+	}
+	return "T";
+//return (0 == rand(0,1))? "H" : "T";
 }
 
 ?>
